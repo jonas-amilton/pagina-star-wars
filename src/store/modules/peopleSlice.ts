@@ -36,7 +36,7 @@ export const { selectAll, selectById } = adapter.getSelectors(
 export const getAllPeoples = createAsyncThunk("people/getAll", async () => {
   const response = await doGet("/people/");
 
-  return response.results;
+  return response.results as PersonType[];
 });
 
 const peopleSlice = createSlice({
@@ -45,7 +45,12 @@ const peopleSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAllPeoples.fulfilled, (state, action) => {
-      adapter.setAll(state, action.payload);
+      console.log(action);
+      const resultadoFinal = action.payload.map((item) => ({
+        ...item,
+        label: item.name,
+      }));
+      adapter.setAll(state, resultadoFinal);
     });
   },
 });
