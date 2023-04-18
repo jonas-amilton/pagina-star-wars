@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Typography } from "@mui/material";
-import TitlePage from "../../components/TitlePage";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { getAllPeoples, selectAll } from "../../store/modules/peopleSlice";
+import React, { useEffect } from 'react';
+import { Grid, Typography } from '@mui/material';
+import TitlePage from '../../components/TitlePage';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { getAllPeoples, selectAll } from '../../store/modules/peopleSlice';
 
 export const About: React.FC = () => {
   const dispatch = useAppDispatch();

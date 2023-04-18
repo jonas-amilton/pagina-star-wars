@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -10,7 +10,7 @@ async function doGet(url: string) {
     return response.data;
   } catch (error) {
     console.log(error);
-    return { success: false, data: { msg: "Server error get." } };
+    return { success: false, data: { msg: 'Server error get.' } };
   }
 }
 
