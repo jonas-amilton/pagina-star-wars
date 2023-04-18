@@ -1,6 +1,10 @@
-import { createEntityAdapter, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { RootState } from '../index';
-import { getFimls } from '../../api';
+import {
+  createEntityAdapter,
+  createSlice,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
+import { RootState } from "../index";
+import { doGet } from "../../api";
 
 export interface FilmType {
   title: string;
@@ -23,16 +27,18 @@ const adapter = createEntityAdapter<FilmType>({
   selectId: (item) => item.episode_id,
 });
 
-export const { selectAll, selectById } = adapter.getSelectors((state: RootState) => state.films);
+export const { selectAll, selectById } = adapter.getSelectors(
+  (state: RootState) => state.films
+);
 
-export const getAllFilms = createAsyncThunk('films/getAll', async () => {
-  const response = await getFimls();
+export const getAllFilms = createAsyncThunk("films/getAll", async () => {
+  const response = await doGet("/films/");
 
   return response.results;
 });
 
 const filmsSlice = createSlice({
-  name: 'films',
+  name: "films",
   initialState: adapter.getInitialState(),
   reducers: {},
   extraReducers: (builder) => {

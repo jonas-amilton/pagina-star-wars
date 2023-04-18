@@ -1,9 +1,9 @@
-import { Box, Button, Card, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, Grid, TextField, Typography } from "@mui/material";
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from 'react';
-import TitlePage from '../../components/TitlePage';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { getAllFilms, selectAll } from '../../store/modules/filmsSlice';
+import React, { useEffect, useState } from "react";
+import TitlePage from "../../components/TitlePage";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { getAllFilms, selectAll } from "../../store/modules/filmsSlice";
 
 export const Home: React.FC = () => {
   const dispatch = useAppDispatch();
