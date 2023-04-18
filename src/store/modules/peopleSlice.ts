@@ -1,6 +1,10 @@
-import { createEntityAdapter, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { RootState } from '../index';
-import { doGet } from '../../api';
+import {
+  createEntityAdapter,
+  createSlice,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
+import { RootState } from "../index";
+import { doGet } from "../../api";
 
 export interface PersonType {
   name: string;
@@ -25,16 +29,18 @@ const adapter = createEntityAdapter<PersonType>({
   selectId: (item) => item.name,
 });
 
-export const { selectAll, selectById } = adapter.getSelectors((state: RootState) => state.people);
+export const { selectAll, selectById } = adapter.getSelectors(
+  (state: RootState) => state.people
+);
 
-export const getAllPeoples = createAsyncThunk('people/getAll', async () => {
-  const response = await doGet('/people/');
+export const getAllPeoples = createAsyncThunk("people/getAll", async () => {
+  const response = await doGet("/people/");
 
   return response.results;
 });
 
 const peopleSlice = createSlice({
-  name: 'people',
+  name: "people",
   initialState: adapter.getInitialState(),
   reducers: {},
   extraReducers: (builder) => {

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Home } from '../pages/Home';
-import { About } from '../pages/About';
+import React from "react";
+import { Home } from "../pages/Home";
+import { Characters } from "../pages/Characters";
 
 export type TMapRoutes = {
   label: string;
@@ -11,13 +11,13 @@ export type TMapRoutes = {
 
 export const routes: TMapRoutes[] = [
   {
-    label: 'Home',
-    path: '/',
+    label: "Filmes",
+    path: "/",
     component: Home,
   },
   {
-    label: 'About',
-    path: '/about',
-    component: About,
+    label: "Personagens",
+    path: "/characters",
+    component: Characters,
   },
 ];
