@@ -12,6 +12,9 @@ export default function ComboBox() {
    * quando definir personagem
    * buscar no array e
    * setar em state PersonSLice
+   * só faz o map
+   * quando o person
+   * estiver setado
    */
 
   console.log(peopleRedux);
