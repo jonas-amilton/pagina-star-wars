@@ -4,14 +4,35 @@ import TitlePage from "../../components/TitlePage";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getAllPeoples, selectAll } from "../../store/modules/peopleSlice";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
   const peopleRedux = useAppSelector(selectAll);
   const [searchText, setSearchText] = useState("");
 
+  let [currentPage, setCurrentPage] = useState(1);
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      dispatch(getAllPeoples(currentPage - 1));
+    } else if (currentPage > 9) {
+      dispatch(getAllPeoples((currentPage = 1)));
+    }
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 1);
+    if (currentPage < 9) {
+      dispatch(getAllPeoples(currentPage + 1));
+    } else {
+      dispatch(getAllPeoples(currentPage - 8));
+    }
+  };
+
   useEffect(() => {
-    dispatch(getAllPeoples());
+    dispatch(getAllPeoples(1));
   }, []);
 
   const filteredPeople = peopleRedux.filter(
@@ -72,6 +93,29 @@ export const Characters: React.FC = () => {
       ) : (
         <Typography variant="h6">Nenhum personagem encontrado.</Typography>
       )}
+
+      <Grid justifyContent={"center"} container spacing={8}>
+        <Grid item xs={2}>
+          <Button
+            fullWidth
+            style={{ backgroundColor: "#000", color: "#fff" }}
+            onClick={handlePreviousPage}
+            variant="contained"
+          >
+            Página anterior
+          </Button>
+        </Grid>
+        <Grid item xs={2}>
+          <Button
+            fullWidth
+            style={{ backgroundColor: "#000", color: "#fff" }}
+            onClick={handleNextPage}
+            variant="contained"
+          >
+            Próxima página
+          </Button>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };

@@ -33,11 +33,14 @@ export const { selectAll, selectById } = adapter.getSelectors(
   (state: RootState) => state.people
 );
 
-export const getAllPeoples = createAsyncThunk("people/getAll", async () => {
-  const response = await doGet("/people/");
+export const getAllPeoples = createAsyncThunk(
+  "people/getAll",
+  async (page: number) => {
+    let response = await doGet(`/people/?page=${page}`);
 
-  return response.results as PersonType[];
-});
+    return response.results as PersonType[];
+  }
+);
 
 const peopleSlice = createSlice({
   name: "people",
