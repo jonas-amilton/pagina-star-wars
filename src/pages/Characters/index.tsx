@@ -98,9 +98,9 @@ export const Characters: React.FC = () => {
         style={{ marginBottom: "2em" }}
         justifyContent={"center"}
         container
-        spacing={8}
+        spacing={2}
       >
-        <Grid item xs={2}>
+        <Grid item xs={6}>
           <Button
             fullWidth
             style={{ backgroundColor: "#000", color: "#fff" }}
@@ -110,7 +110,7 @@ export const Characters: React.FC = () => {
             Página anterior
           </Button>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6}>
           <Button
             fullWidth
             style={{ backgroundColor: "#000", color: "#fff" }}
