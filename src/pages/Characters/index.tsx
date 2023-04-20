@@ -94,7 +94,12 @@ export const Characters: React.FC = () => {
         <Typography variant="h6">Nenhum personagem encontrado.</Typography>
       )}
 
-      <Grid justifyContent={"center"} container spacing={8}>
+      <Grid
+        style={{ marginBottom: "2em" }}
+        justifyContent={"center"}
+        container
+        spacing={8}
+      >
         <Grid item xs={2}>
           <Button
             fullWidth
