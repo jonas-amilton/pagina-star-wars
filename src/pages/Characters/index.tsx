@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Typography, Card, CardContent } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Card,
+  CardContent,
+  TextField,
+  Button,
+} from "@mui/material";
 import TitlePage from "../../components/TitlePage";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getAllPeoples, selectAll } from "../../store/modules/peopleSlice";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 
 export const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
