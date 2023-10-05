@@ -1,6 +1,5 @@
 import React from "react";
-import { Home } from "../pages/Home";
-import { Characters } from "../pages/Characters";
+import { Home, Characters, Planets } from "../pages/index";
 
 export type TMapRoutes = {
   label: string;
@@ -19,5 +18,10 @@ export const routes: TMapRoutes[] = [
     label: "Personagens",
     path: "/characters",
     component: Characters,
+  },
+  {
+    label: "Planetas",
+    path: "/planets",
+    component: Planets,
   },
 ];
